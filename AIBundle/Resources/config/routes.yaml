@@ -1,0 +1,24 @@
+ai_admin:
+    path: /admin/ai_settings
+    controller: KimaiPlugin\AIBundle\Controller\AdminController::indexAction
+    methods: [GET, POST]
+
+ai_chat:
+    path: /ai/chat
+    controller: KimaiPlugin\AIBundle\Controller\ChatController::chatAction
+    methods: [POST]
+
+ai_parse:
+    path: /ai/parse
+    controller: KimaiPlugin\AIBundle\Controller\ChatController::parseTimelogAction
+    methods: [POST]
+
+ai_preview:
+    path: /ai/preview
+    controller: KimaiPlugin\AIBundle\Controller\ChatController::previewEntriesAction
+    methods: [POST]
+
+ai_submit:
+    path: /ai/submit
+    controller: KimaiPlugin\AIBundle\Controller\ChatController::submitEntriesAction
+    methods: [POST]

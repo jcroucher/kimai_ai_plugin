@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ 'AI Assistant Settings'|trans }}{% endblock %}
+{% block page_subtitle %}{{ 'Configure AI integration'|trans }}{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    {{ include(ai_assets) }}
+{% endblock %}
+
+{% block main %}
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">{{ 'OpenAI Configuration'|trans }}</h3>
+        </div>
+        
+        <form method="post" class="box-body">
+            <div class="form-group">
+                <label for="ai_api_key">{{ 'OpenAI API Key'|trans }}</label>
+                <input type="password" 
+                       class="form-control" 
+                       id="ai_api_key" 
+                       name="ai_api_key" 
+                       placeholder="{% if has_key %}Current key ends with {{ api_key }}{% else %}{{ 'Enter your OpenAI API key'|trans }}{% endif %}">
+                <p class="help-block">
+                    {{ 'Get your API key from'|trans }} <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a>
+                </p>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-save"></i> {{ 'Save Settings'|trans }}
+                </button>
+            </div>
+            
+            {% if has_key %}
+            <div class="alert alert-info">
+                <i class="fa fa-info-circle"></i> API key is configured (ends with {{ api_key }})
+            </div>
+            {% endif %}
+        </form>
+    </div>
+
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">{{ 'AI Features'|trans }}</h3>
+        </div>
+        <div class="box-body">
+            <ul>
+                <li><strong>{{ 'Time Log Parser'|trans }}:</strong> {{ 'Parse free-form time logs into structured entries'|trans }}</li>
+                <li><strong>{{ 'Chat Assistant'|trans }}:</strong> {{ 'Ask questions about your time tracking data'|trans }}</li>
+                <li><strong>{{ 'Smart Entry Creation'|trans }}:</strong> {{ 'Auto-detect projects, clients, and billable status'|trans }}</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    KimaiPlugin\AIBundle\:
+        resource: '../../*'
+        exclude: '../../{Resources,Tests}'
+
+    KimaiPlugin\AIBundle\Service\:
+        resource: '../../Service/*'
+        public: true
+
+    KimaiPlugin\AIBundle\Controller\:
+        resource: '../../Controller/*'
+        tags: ['controller.service_arguments']
+
+    KimaiPlugin\AIBundle\EventSubscriber\:
+        resource: '../../EventSubscriber/*'
+        tags: ['kernel.event_subscriber']
