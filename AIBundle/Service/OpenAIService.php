@@ -44,7 +44,7 @@ class OpenAIService
                 'Content-Type' => 'application/json',
             ],
             'json' => [
-                'model' => 'gpt-4',
+                'model' => 'gpt-3.5-turbo',
                 'messages' => [
                     ['role' => 'system', 'content' => $systemPrompt],
                     ['role' => 'user', 'content' => $message]
@@ -72,7 +72,7 @@ class OpenAIService
                 'Content-Type' => 'application/json',
             ],
             'json' => [
-                'model' => 'gpt-4',
+                'model' => 'gpt-3.5-turbo',
                 'messages' => [
                     ['role' => 'system', 'content' => $systemPrompt],
                     ['role' => 'user', 'content' => $contextualTimelog]
